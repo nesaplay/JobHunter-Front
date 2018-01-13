@@ -48,6 +48,7 @@ email.textContent = meta.email
 education.textContent = meta.education
 
 
+
 homeButton.addEventListener('click', function() {
     location.assign('index.html')
 })

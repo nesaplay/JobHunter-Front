@@ -95,6 +95,9 @@ html {
 }
 
 .section-content article {
+    /* flex-grow: 1;
+    flex-shrink: 1;
+    margin: 10px */
     width: 25%;
 }
 
@@ -103,7 +106,7 @@ html {
     flex-direction: column;
     text-align: center;
     height: 400px;
-    padding: 20px;
+    margin: 10px;
     border: 1px solid rgb(232, 232, 232);
 }
 
@@ -114,10 +117,14 @@ html {
     object-fit: contain;
 }
 
+.section-content-item .item-name {
+    padding-top: 10px;
+}
+
 .section-content-item .item-email {
     color: rgb(138, 138, 138);
     font-size: 12px;
-    padding-top: 10px;
+    padding: 10px 0;
 }
 
 .section-content-item .item-email, .item-name, img {
