@@ -1,8 +1,8 @@
-const BASE_URL = 'http://localhost:3333/api'
-const IMG_PLACEHOLDER =
+var BASE_URL = 'http://localhost:3333/api'
+var IMG_PLACEHOLDER =
     'https://akommo.com/static/img/email/person_placeholder.png'
-const candidateList = document.querySelector('.section-content')
-const homeButton = document.querySelector('.header-button')
+var candidateList = document.querySelector('.section-content')
+var homeButton = document.querySelector('.header-button')
 
 // fetching candidates data
 fetch(`${BASE_URL}/candidates`)
@@ -15,7 +15,7 @@ fetch(`${BASE_URL}/candidates`)
 
 function populateList(person) {
     person.avatar = person.avatar || IMG_PLACEHOLDER
-    const meta = JSON.stringify(person)
+    var meta = JSON.stringify(person)
 
     return `
             <article>
