@@ -1,0 +1,239 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+        'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+}
+
+*,
+*::before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.body-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    flex: 1 0 auto;
+    padding: 20px;
+}
+
+.footer-wrapper {
+    max-height: 50px;
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.footer-author::after {
+    content: '★';
+    display: inline;
+    padding: 0 5px;
+}
+
+.header-wrapper {
+    max-height: 100px;
+    padding: 20px;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.header-button {
+    padding: 10px 20px;
+}
+
+.section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.section-nav::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 20px;
+    border-bottom: 1px solid rgb(232, 232, 232);
+}
+
+.section-nav-title {
+    font-size: 1.2em;
+}
+
+.section-nav-search input {
+    width: 250px;
+    background: #fcfcfc;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    font-size: inherit;
+    text-indent: 32px;
+    padding: 5px;
+
+    background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698956-icon-111-search-128.png');
+    background-repeat: no-repeat;
+    background-size: 30px 25px;
+    background-position: left;
+}
+
+.section-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+.section-content article {
+    width: 25%;
+}
+
+.section-content-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 400px;
+    padding: 20px;
+    border: 1px solid rgb(232, 232, 232);
+}
+
+.section-content-item img {
+    flex: 2;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.section-content-item .item-email {
+    color: rgb(138, 138, 138);
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.section-content-item .item-email, .item-name, img {
+    pointer-events: none;
+}
+
+.section-about {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section-about-picture {
+    width: 33%;
+    flex: 1;
+    height: 400px;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.section-about-info {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+}
+
+.section-about-info .item {
+    width: 50%;
+    height: 200px;
+    background-color: aliceblue;
+    padding: 20px;
+}
+
+.section-about-info .item span:nth-child(2) {
+    display: block;
+    text-align: left;
+    padding-top: 50px;
+    text-indent: 20px;
+}
+
+.section-reports-title {
+    padding: 20px 0;
+    display: block;
+    font-size: 1.2em;
+}
+
+.section-reports-table {
+    width: 100%;
+    text-align: left;
+    text-indent: 10px;
+    border-collapse: collapse;
+}
+
+.section-reports-table tr, td, th {
+    border: 1px solid rgb(138, 138, 138);
+    padding: 5px;
+}
+
+
+/* SMARTPHONES PORTRAIT */
+@media only screen and (min-width: 300px) {
+    .section-content article {
+        width: 100%;
+    }
+
+    .section-about-info .item {
+        width: 100%;
+    }
+
+    .section-about-picture {
+        width: 100%;
+    }
+}
+
+/* SMARTPHONES LANDSCAPE */
+@media only screen and (min-width: 480px) {
+    .section-content article {
+        width: 50%;
+    }
+
+    .section-about-info .item {
+        width: 100%;
+    }
+
+    .section-about-picture {
+        width: 100%;
+    }
+}
+
+/* TABLETS PORTRAIT */
+@media only screen and (min-width: 768px) {
+    .section-content article {
+        width: 33%;
+    }
+
+    .section-about-info .item {
+        width: 50%;
+    }
+
+    .section-about-picture {
+        width: 33%;
+    }
+}
+
+/* TABLET LANDSCAPE / DESKTOP */
+@media only screen and (min-width: 1024px) {
+    .section-content article {
+        width: 25%;
+    }
+
+    .section-about-info .item {
+        width: 50%;
+    }
+
+    .section-about-picture {
+        width: 33%;
+    }
+}  
