@@ -90,7 +90,7 @@
                                  </article>
                                  <article>
                                     <span>Interview Date</span>
-                                    <p>${candidate.interviewDate}</p>
+                                    <p>${new Date(candidate.interviewDate).toLocaleDateString()}</p>
                                  </article>
                                  <article>
                                     <span>Phase</span>
