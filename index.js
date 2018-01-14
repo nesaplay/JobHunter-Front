@@ -1,9 +1,11 @@
-(function() {
+;(function() {
     var BASE_URL = 'http://localhost:3333/api'
     var IMG_PLACEHOLDER =
         'https://akommo.com/static/img/email/person_placeholder.png'
     var candidateList = document.querySelector('.section-content')
     var homeButton = document.querySelector('.header-button')
+    var search = document.querySelector('.search-field')
+    var candidates = []
 
     // fetching candidates data
     fetch(`${BASE_URL}/candidates`)
@@ -11,7 +13,8 @@
             return response.json()
         })
         .then(function(data) {
-            candidateList.innerHTML = data.map(populateList).join('')
+            candidates = data
+            candidateList.innerHTML = candidates.map(populateList).join('')
         })
 
     function populateList(person) {
@@ -29,8 +32,19 @@
         `
     }
 
+    // Event Listeners
     homeButton.addEventListener('click', function() {
         location.assign('index.html')
+    })
+
+    search.addEventListener('keyup', function(e) {
+        var query = e.target.value.toLowerCase()
+        candidateList.innerHTML = candidates
+            .filter(function(candidate) {
+                return candidate.name.toLowerCase().includes(query)
+            })
+            .map(populateList)
+            .join('')
     })
 
     document.addEventListener('click', function(e) {
