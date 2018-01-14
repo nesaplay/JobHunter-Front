@@ -184,6 +184,14 @@ html {
     padding: 5px;
 }
 
+.table-view-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.table-status-cell {
+    width: 5%;
+}
 
 /* SMARTPHONES PORTRAIT */
 @media only screen and (min-width: 300px) {
