@@ -1,4 +1,4 @@
-(function() {
+;(function() {
     // variables init
     var BASE_URL = 'http://localhost:3333/api/reports'
     var VIEW_ICON =
@@ -25,6 +25,9 @@
                     return report.candidateId === meta.id
                 })
                 .map(populateList)
+        })
+        .catch(function(error) {
+            return console.warn(error)
         })
 
     // Populating reports table
@@ -65,14 +68,54 @@
         location.assign('index.html')
     })
 
+    // view
     document.addEventListener('click', function(e) {
-        console.log(e.target)
         if (e.target && e.target.className === 'table-status-cell') {
-            console.log('open view here')
+            var id = e.target.getAttribute('data-id')
+
+            fetch(`${BASE_URL}/${id}`)
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(candidate) {
+                    var content = `
+                        <div class='reports-modal'>
+                            <p class='reports-modal-name'>${
+                                candidate.candidateName
+                            }</p>
+                                <div class='reports-modal-info'>
+                                 <article>
+                                    <span>Company</span>
+                                    <p>${candidate.companyName}</p>
+                                 </article>
+                                 <article>
+                                    <span>Interview Date</span>
+                                    <p>${candidate.interviewDate}</p>
+                                 </article>
+                                 <article>
+                                    <span>Phase</span>
+                                    <p>${candidate.phase}</p>
+                                 </article>
+                                 <article>
+                                    <span>Status</span>
+                                    <p>${candidate.status}</p>
+                                 </article>
+                                 </div>
+                                <div class='reports-modal-notes'>
+                                    <span>Notes</span>
+                                    <p>${candidate.note}</p>
+                                </div>
+                        </div>
+                    `
+                    // initiating modal and passing options
+                    var cModal = new Modal({
+                        content: content
+                    })
+                    cModal.open()
+                })
+                .catch(function(error) {
+                    return console.warn(error)
+                })
         }
     })
-
-    this.Modal = function() {
-        console.log('hey');
-    }
 })()
