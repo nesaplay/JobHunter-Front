@@ -1,4 +1,4 @@
-;(function() {
+(function() {
     // variables init
     var BASE_URL = 'http://localhost:3333/api/reports'
     var VIEW_ICON =

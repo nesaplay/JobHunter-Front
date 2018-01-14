@@ -1,4 +1,4 @@
-;(function() {
+(function() {
     // Modal constructor
     this.Modal = function() {
         this.closeButton = null
@@ -27,17 +27,8 @@
         // Initialize our event listeners
         initializeEvents.call(this)
 
-        /*
-             * After adding elements to the DOM, use getComputedStyle
-             * to force the browser to recalc and recognize the elements
-             * that we just added. This is so that CSS animation has a start point
-             */
         window.getComputedStyle(this.modal).height
 
-        /*
-             * Add our open class and check if the modal is taller than the window
-             * If so, our anchored class is also applied
-             */
         this.modal.className =
             this.modal.className +
             (this.modal.offsetHeight > window.innerHeight
@@ -57,10 +48,6 @@
             ''
         )
 
-        /*
-     * Listen for CSS transitionend event and then
-     * Remove the nodes from the DOM
-     */
         this.modal.addEventListener(this.transitionEnd, function() {
             _.modal.parentNode.removeChild(_.modal)
         })
@@ -83,11 +70,6 @@
 
     function buildOut() {
         var content, contentHolder, docFrag
-
-        /*
-         * If content is an HTML string, append the HTML string.
-         * If content is a domNode, append its content.
-         */
 
         if (typeof this.options.content === 'string') {
             content = this.options.content
